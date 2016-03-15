@@ -219,6 +219,7 @@ module Bunny
 
         if @session.automatically_recover?
           @session.handle_network_failure(e)
+          ""
         else
           @session_thread.raise(Bunny::NetworkFailure.new("detected a network failure: #{e.message}", e))
         end
